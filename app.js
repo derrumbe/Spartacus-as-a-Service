@@ -21,6 +21,8 @@ var profileRouter = require('./routes/profile');
 var app = express();
 
 require('./config/passport')(passport); // pass passport for configuration
+app.set('view engine', 'ejs'); // set up ejs for templating
+
 
 // required for passport
 app.use(session({ secret: 'aubreymaturin',
