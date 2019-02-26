@@ -16,6 +16,9 @@
     "passport-facebook": "~1.0.0",
     "passport-local": "~1.0.0",
     "passport-twitter": "~1.0.0",
-    "bcrypt-nodejs" : "latest"
+    "bcrypt-nodejs" : "latest",
+    "body-parser": "~1.15.2",
+    "method-override": "~2.3.6",
+    "express-session": "~1.14.1"
   }
 }
