@@ -11,6 +11,10 @@ var flash    = require('connect-flash');
 
 
 
+//import Markov from 'markov-strings'
+//const Markov = require('markov-strings').default;
+var markovStrings = require("markov-strings")
+
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
