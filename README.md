@@ -58,6 +58,6 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/datadog-metrics
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: 
-[travis-url]: 
+[travis-image]: https://travis-ci.com/derrumbe/Spartacus-as-a-Service.svg?branch=master
+[travis-url]: https://travis-ci.com/derrumbe/Spartacus-as-a-Service/
 [wiki]: https://github.com/derrumbe/Spartacus-as-a-Service/wiki
