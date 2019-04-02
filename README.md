@@ -1,5 +1,4 @@
-# Product Name
-> Short blurb about what your product does.
+# Spartacus as a Service 
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
