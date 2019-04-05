@@ -183,6 +183,50 @@ module.exports = function(app, passport) {
         });
     });
 
+// =============================================================================
+// Obfuscate (ALREADY LOGGED IN ) =============
+// =============================================================================
+// This route will obfuscate (add bogus content to whatever social media platform referenced)
+
+    // local -----------------------------------
+    app.get('/obfuscate/local', function(req, res) {
+        res.redirect('/profile');
+    });
+
+    // facebook -------------------------------
+    app.get('/obfuscate/facebook', function(req, res) {
+        res.redirect('/profile');
+    });
+
+    // twitter --------------------------------
+    app.get('/obfuscate/twitter', function(req, res) {
+
+        /*console.log("before tweet");
+                    var twitterClient = new Twitter({
+                        consumer_key: configAuth.twitterAuth.consumerKey,
+                        consumer_secret: configAuth.twitterAuth.consumerSecret,
+                        access_token_key: user.twitter.token,
+                        access_token_secret: user.twitter.tokenSecret
+                    });
+
+                    client.post('statuses/update', {status: 'Running 5 miles is still difficult. Discuss.'}, function(error, tweet, response) {
+                        if (!error) {
+                            console.log(tweet);
+                        }
+                        else {
+                            console.log(error);
+                        }
+                    });
+consolse.log("after tweet");*/
+        res.redirect('/profile');
+    });
+
+    // google ---------------------------------
+    app.get('/obfuscate/google', function(req, res) {
+        res.redirect('/profile');
+    });
+
+
 
 };
 

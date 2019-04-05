@@ -14,9 +14,11 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1><span class=""></span> Spartacus as a Service: Accounts</h1>
+        <img src="/images/spartacus.png"/>
+        <h1><span class=""> </span> Spartacus as a Service: Accounts</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-        <a href="" class="btn btn-primary">Obfuscate!</a>
+        <a href="/obfuscate/local" class="btn btn-primary">Obfuscate!</a>
+
     </div>
 
     <div class="row">
@@ -42,12 +44,10 @@
                 <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
                 <% } %>
 
-                <a href="" class="btn btn-primary">Obfuscate!</a>
+                <a href="/obfuscate/facebook" class="btn btn-primary">Obfuscate!</a>
             </div>
         </div>
-    </div>
 
-    <div class="row">
 
         <!-- TWITTER INFORMATION -->
         <div class="col-sm-6">
@@ -68,10 +68,13 @@
                 <a href="/connect/twitter" class="btn btn-info">Connect Twitter</a>
                 <% } %>
 
-                <a href="" class="btn btn-info">Obfuscate!</a>
+                <a href="/obfuscate/twitter" class="btn btn-info">Obfuscate!</a>
 
             </div>
         </div>
+    </div>
+
+    <div class="row">
 
         <!-- GOOGLE INFORMATION -->
         <div class="col-sm-6">
@@ -91,7 +94,9 @@
                 <% } else { %>
                 <a href="/connect/google" class="btn btn-danger">Connect Google</a>
                 <% } %>
-                <a href="" class="btn btn-danger">Obfuscate!</a>
+                <a href="/obfuscate/google" class="btn btn-danger">Obfuscate!</a>
+
+
 
             </div>
         </div>

@@ -4,6 +4,8 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy  = require('passport-twitter').Strategy;
 var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
 
+var Twitter = require('twitter');
+
 // load up the user model
 var User       = require('../models/user');
 
@@ -152,6 +154,7 @@ module.exports = function(passport) {
 
                             newUser.twitter.id          = profile.id;
                             newUser.twitter.token       = token;
+                            newUser.twitter.tokenSecret = tokenSecret;
                             newUser.twitter.username    = profile.username;
                             newUser.twitter.displayName = profile.displayName;
 
@@ -172,11 +175,16 @@ module.exports = function(passport) {
                     user.twitter.username    = profile.username;
                     user.twitter.displayName = profile.displayName;
 
+
+
+
                     user.save(function(err) {
                         if (err)
                             throw err;
                         return done(null, user);
                     });
+
+
                 }
 
             });
