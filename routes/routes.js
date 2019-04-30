@@ -1,3 +1,8 @@
+var Twitter = require('twitter');
+// load the auth variables
+var configAuth = require('../config/auth'); // use this one for testing
+
+
 module.exports = function(app, passport) {
 
 // normal routes ===============================================================
@@ -195,13 +200,15 @@ module.exports = function(app, passport) {
 
     // facebook -------------------------------
     app.get('/obfuscate/facebook', function(req, res) {
+        //insert life event changes for facebook here after testing
+        // need to do a diff on current status and modify events
         res.redirect('/profile');
     });
 
     // twitter --------------------------------
     app.get('/obfuscate/twitter', function(req, res) {
-
-        /*console.log("before tweet");
+        var user            = req.user;
+        console.log("before tweet");
                     var twitterClient = new Twitter({
                         consumer_key: configAuth.twitterAuth.consumerKey,
                         consumer_secret: configAuth.twitterAuth.consumerSecret,
@@ -209,7 +216,9 @@ module.exports = function(app, passport) {
                         access_token_secret: user.twitter.tokenSecret
                     });
 
-                    client.post('statuses/update', {status: 'Running 5 miles is still difficult. Discuss.'}, function(error, tweet, response) {
+                    console.log(twitterClient);
+
+                    twitterClient.post('statuses/update', {status: 'Running 5 miles is still difficult. Discuss.'}, function(error, tweet, response) {
                         if (!error) {
                             console.log(tweet);
                         }
@@ -217,12 +226,14 @@ module.exports = function(app, passport) {
                             console.log(error);
                         }
                     });
-consolse.log("after tweet");*/
+        console.log("after tweet");
         res.redirect('/profile');
     });
 
     // google ---------------------------------
     app.get('/obfuscate/google', function(req, res) {
+        // insert URL redirection for search pollution here
+        // should do via backend without user interaction
         res.redirect('/profile');
     });
 
