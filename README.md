@@ -42,6 +42,11 @@ Then rip through the app.js and install all the requisite modules:
 
 
 ## Release History
+* 1.0.0 
+    * Full update
+    * LTSM RNN added for content generation
+    * Identity generation (with universals) - will add in Mechanical Turk hooks on next rev
+    * Rework of GUI (slighlty)
 * 0.1.0
     * The first proper release, complete with readme
     * Platforms supported with OAuth: Twitter, Facebook, Google
