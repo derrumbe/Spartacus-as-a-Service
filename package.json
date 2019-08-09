@@ -6,22 +6,25 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt-nodejs": "latest",
+    "body-parser": "^1.19.0",
+    "connect-flash": "~0.1.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "ejs": "~2.5.2",
     "express": "~4.16.0",
-    "ejs" : "~2.5.2",
+    "express-session": "^1.16.2",
+    "glob": "^7.1.4",
+    "markov-strings": "^2.0.2",
+    "method-override": "~2.3.6",
     "mongoose": "^5.4.12",
     "morgan": "~1.9.0",
+    "open": "^6.4.0",
     "passport": "~0.2.0",
     "passport-facebook": "~1.0.0",
+    "passport-google-oauth": "~1.0.0",
     "passport-local": "~1.0.0",
     "passport-twitter": "~1.0.0",
-    "passport-google-oauth" : "~1.0.0",
-    "markov-strings" : "^2.0.2",
-    "connect-flash" : "~0.1.1",
-    "bcrypt-nodejs" : "latest",
-    "body-parser": "~1.15.2",
-    "method-override": "~2.3.6",
-    "express-session": "~1.14.1"
+    "temporal": "^0.7.1"
   }
 }

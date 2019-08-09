@@ -1,0 +1,265 @@
+<!-- views/createIdentities.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Spartacus as a Service</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:80px; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <img src="/images/spartacus.png"/>
+        <h1><span class=""></span> Spartacus as a Service: Create Identity Set</h1>
+</div>
+        <!-- Create Random Identities -->
+        <div class="col-sm-20">
+            <div class="well">
+                <h3 class="text-success"><span class=""></span> Generate Identities</h3>
+
+
+                <script>
+                function createIdentSet()
+                {
+                 var users="";
+
+                   var i;
+                   var num_of_idents = document.getElementById('numOfIdents').value;
+
+
+                  for (i=0;i<num_of_idents;i++)
+                  {
+
+
+
+
+                   if (document.getElementById('firstName').value=="")
+                        var firstName = faker.name.firstName();
+                       else
+                         var firstName =  document.getElementById('firstName').value;
+
+                    if (document.getElementById('lastName').value=="")
+                         lastName = faker.name.lastName();
+                        else
+                          var lastName =  document.getElementById('lastName').value;
+
+                    if (document.getElementById('inputDob').value=="")
+                    {
+                       var dob = faker.date.past(50, new Date("Sat Sep 20 1992 21:35:02 GMT+0200 (CEST)"));
+                       dob = dob.getFullYear() + "-" + (dob.getMonth()+1) + "-" + dob.getDate();  // First month is "1"
+                      }
+                     else
+                       var dob=document.getElementById('inputDob').value;
+
+
+                    if (document.getElementById('inputEmail').value=="")
+                         email = faker.internet.email(firstName, lastName);
+                        else
+                          var email =  document.getElementById('inputEmail').value;
+
+
+                    if (document.getElementById('inputStreetAddress').value=="")
+                         address = faker.address.streetAddress();
+                        else
+                          var address =  document.getElementById('inputStreetAddress').value;
+
+                   if (document.getElementById('inputCityStateZip').value=="")
+                         cityStateZip = faker.address.city() + ", " + faker.address.stateAbbr() + " " + faker.address.zipCode();
+                        else
+                          var cityStateZip =  document.getElementById('inputCityStateZip').value;
+
+                   if (document.getElementById('inputCountry').value=="")
+                         country = faker.locales[faker.locale].address.default_country || "";
+                        else
+                          var country =  document.getElementById('inputCountry').value;
+
+
+
+                     if (document.getElementById('inputPhone').value=="")
+                              phone = faker.phone.phoneNumber();
+                             else
+                               var phone =  document.getElementById('inputPhone').value;
+
+                    if (document.getElementById('inputUsername').value=="")
+                              username = faker.internet.userName(firstName, lastName);
+                             else
+                               var username =  document.getElementById('inputUsername').value;
+
+                    if (document.getElementById('inputPassword').value=="")
+                              password = faker.internet.password();
+                             else
+                               var password =  document.getElementById('inputPassword').value;
+
+
+                    if (document.getElementById('inputAvatar').value=="")
+                              avatar = faker.internet.password();
+                             else
+                               var avatar =  document.getElementById('inputAvatar').value;
+
+
+                 var user = {
+                   _firstName: firstName,
+                   _lastName: lastName,
+                   _dob: dob,
+                   _email: email,
+                   _address: address,
+                   _cityStateZip: cityStateZip,
+                   _country:  country,
+                   _phone: phone,
+                   _username: username,
+                   _password: password,
+                   _image: avatar
+                 };
+
+               var userDetails= JSON.stringify(user, null, 2);
+
+                 users=users+"<br>"+userDetails;
+
+
+                 }
+
+
+                    document.getElementById('result').innerHTML=users;
+
+                 }
+
+
+
+                </script>
+
+
+                <p>Number of Identities:
+                    <input id="numOfIdents" value="25"/>
+                </p>
+                <hr/>
+                <h3 class="text-success"><span class=""></span> Identity Universals</h3>
+
+ <form class="form-horizontal">
+      <fieldset>
+
+        <b><i>If a field below is blank, every user will have a unique value. If a field has an entry, then all users will share that value for a field.</i></b>
+<br/>
+
+        <h4>Generate Person Example</h4>
+        <br/>
+
+<!--         <div class="form-group">
+          <label for="select" class="col-lg-2 control-label">Locality</label>
+          <div class="col-lg-10">
+            <select class="form-control locale">
+            </select>
+            <br>
+          </div>
+        </div> -->
+
+
+        <div class="form-group">
+          <label for="firstName" class="col-lg-2 control-label">First Name:</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="firstName" placeholder="First Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName" class="col-lg-2 control-label">Last Name:</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputDob" class="col-lg-2 control-label">Date of Birth:</label>
+          <div class="col-lg-10">
+            <input type="input" class="form-control" id="inputDob" placeholder="Date of Birth">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputStreetAddress" class="col-lg-2 control-label">Street Address:</label>
+          <div class="col-lg-10">
+            <input type="input" class="form-control" id="inputStreetAddress" placeholder="Street Address">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputCityStateZip" class="col-lg-2 control-label">City, State Zip:</label>
+          <div class="col-lg-10">
+            <input type="input" class="form-control" id="inputCityStateZip" placeholder="City, State Zip">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputCountry" class="col-lg-2 control-label">Country:</label>
+          <div class="col-lg-10">
+            <input type="input" class="form-control" id="inputCountry" placeholder="Country">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPhone" class="col-lg-2 control-label">Phone Number:</label>
+          <div class="col-lg-10">
+            <input type="input" class="form-control" id="inputPhone" placeholder="Phone Number">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputUsername" class="col-lg-2 control-label">Username:</label>
+          <div class="col-lg-10">
+            <input type="input" class="form-control" id="inputUsername" placeholder="Username">
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="inputPassword" class="col-lg-2 control-label">Password:</label>
+          <div class="col-lg-10">
+            <input type="input" class="form-control" id="inputPassword" placeholder="Password">
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Email:</label>
+          <div class="col-lg-10">
+            <input type="input" class="form-control" id="inputEmail" placeholder="Email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="imageAvatar" class="col-lg-2 control-label">Avatar:</label>
+          <div class="col-lg-10">
+              <input type="text" class="form-control" id="inputAvatar" placeholder="Avatar">
+          </div>
+        </div>
+
+       <!--  <div class="form-group">
+          <label for="inputGender" class="col-lg-2 control-label">Gender:</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="inputGender" placeholder="Gender">
+          </div>
+        </div> -->
+
+
+      </fieldset>
+    </form>
+
+
+
+                <a  onclick="createIdentSet()" class="btn btn-success" id="createIdentSet">Create Set</a>
+
+<hr>
+<p id="result"></p>
+
+
+
+
+
+            </div>
+        </div>
+        </div>
+
+</div>
+</body>
+</html>

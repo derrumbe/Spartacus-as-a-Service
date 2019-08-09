@@ -8,16 +8,50 @@ var mongoose = require('mongoose');
 var morgan       = require('morgan');
 var session      = require('express-session');
 var flash    = require('connect-flash');
-
-
+global.faker = require('faker');
+const open = require('open');
+console.log("here");
 
 //import Markov from 'markov-strings'
 //const Markov = require('markov-strings').default;
-var markovStrings = require("markov-strings")
+//var Markov = require("markov-strings")
 
-var bodyParser   = require('body-parser');
+//var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
+//var corpus = require ("./markov/corpus.js");
+// Build the Markov generator
+//const markov = new Markov(corpus.getInputText(), { stateSize: 3 });
+//markov.buildCorpus()
+
+//console.log(corpus.getInputText());
+
+
+//const options = {
+ //   maxTries: 1000, // Give up if I don't have a sentence after 20 tries (default is 10)
+  //  filter: (result) => {
+   // return
+        //result.string.split(' ').length >= 5 // At least 5 words
+        //result.string.endsWith('.')             // End sentences with a dot.
+//}
+//}
+
+// Generate a sentence
+//const result = markov.generate();
+//console.log(markov.generate());
+//console.log(markov.generate());
+//console.log(markov.generate());
+//console.log(markov.generate());
+
+console.log("here");
+
+
+
+var ml_models = require('./config/ml5_models.js');
+var models = ml_models();
+
+//show avail models in console
+console.log(models);
 
 var configDB = require('./config/database.js');
 
@@ -49,7 +83,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+var faker = require('faker');
 
+var randomName = faker.name.findName(); // Rowan Nikolaus
+var randomEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
+var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+
+
+console.log(randomName,randomEmail,randomCard);
 
 
 

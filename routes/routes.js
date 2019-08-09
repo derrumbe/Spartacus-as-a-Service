@@ -2,6 +2,15 @@ var Twitter = require('twitter');
 // load the auth variables
 var configAuth = require('../config/auth'); // use this one for testing
 
+//var ml5 = require('../libraries/ml5.min.js');
+
+var User = require('../libraries/user.js');
+
+
+
+
+var ml_models = require('../config/ml5_models.js');
+var models = ml_models();
 
 module.exports = function(app, passport) {
 
@@ -15,9 +24,22 @@ module.exports = function(app, passport) {
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile.ejs', {
-            user : req.user
+            user : req.user,
+            models: models
         });
     });
+
+    // PROFILE SECTION =========================
+    app.get('/createIdentities', function(req, res) {
+        res.render('createIdentities.ejs');
+    });
+
+
+/*    app.get('/user', function (req, res) {
+        console.log(faker.helpers.contextualCard());
+        console.log(faker.helpers.contextualCard());
+        res.json(User);
+    });*/
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
@@ -217,8 +239,12 @@ module.exports = function(app, passport) {
                     });
 
                     console.log(twitterClient);
+        //var yourSelect = document.getElementById( "model" );
+        //alert( yourSelect.options[ yourSelect.selectedIndex ].value )
 
-                    twitterClient.post('statuses/update', {status: 'Running 5 miles is still difficult. Discuss.'}, function(error, tweet, response) {
+        console.log("tweet: "+req.query.tweet);
+
+                   twitterClient.post('statuses/update', {status: req.query.tweet }, function(error, tweet, response) {
                         if (!error) {
                             console.log(tweet);
                         }
@@ -234,6 +260,11 @@ module.exports = function(app, passport) {
     app.get('/obfuscate/google', function(req, res) {
         // insert URL redirection for search pollution here
         // should do via backend without user interaction
+        //res.redirect('https://www.google.com/search?q=bananas');
+        //open("https://www.google.com/search?q=bananas");
+        open( 'https://www.google.com/search?q=bananas', function (err) {
+            if ( err ) throw err;
+        });
         res.redirect('/profile');
     });
 
